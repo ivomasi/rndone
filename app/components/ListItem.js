@@ -47,7 +47,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     padding: 15,
   },
-  list_item_image: { width: 60, height: 60, borderRadius: 50, marginRight: 10 },
-  list_item_title: { marginBottom: 5 },
-  list_item_subtitle: { color: "#969696" },
+  list_item_image: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    marginRight: 10,
+  },
+  list_item_title: {
+    marginBottom: 5,
+  },
+  list_item_subtitle: {
+    color: "#969696",
+  },
 });
