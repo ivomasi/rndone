@@ -4,6 +4,7 @@ export const colors = {
   black: "#000",
   white: "#fcfcfc",
   light: "#f8f4f4",
+  gray: "#999",
 };
 
 export const radius = {
