@@ -10,7 +10,7 @@ const Card = ({ title, subTitle, image }) => {
       <Image style={styles.card_image} source={image} />
       <View style={styles.text_container}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subTitle}>{subTitle}</Text>
+        <Text style={styles.subTitle}>${subTitle}</Text>
       </View>
     </View>
   );
@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.small_radius,
     backgroundColor: colors.white,
     overflow: "hidden",
+    alignSelf: "center",
+    marginBottom: 15,
   },
 
   card_image: {

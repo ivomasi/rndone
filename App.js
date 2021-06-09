@@ -6,14 +6,14 @@ import { StyleSheet, View, Text } from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import PicturePreview from "./app/screens/PicturePreview";
 import MyAccountScreen from "./app/screens/MyAccountScreen";
-
-import Card from "./app/components/Card";
+import ListingsScreen from "./app/screens/ListingsScreen";
 import ListingDetails from "./app/screens/ListingDetails";
-
 import Messages from "./app/screens/Messages";
 
+import Card from "./app/components/Card";
+
 export default function App() {
-  return <MyAccountScreen />;
+  return <ListingsScreen />;
 }
 
 const styles = StyleSheet.create({
