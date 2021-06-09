@@ -11,3 +11,8 @@ export const radius = {
   medium_radius: 25,
   rounded_radius: 50,
 };
+
+export const icons_size = {
+  small: 25,
+  medium: 30,
+};

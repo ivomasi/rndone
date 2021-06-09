@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Image } from "react-native";
 
 //styles
-import { colors } from "../global/globalStyles";
+import { colors, icons_size } from "../global/globalStyles";
 
 //icons
 import { AntDesign } from "@expo/vector-icons";
@@ -12,13 +12,13 @@ const PicturePreview = () => {
     <View style={styles.container}>
       <AntDesign
         name="close"
-        size={30}
+        size={icons_size.medium}
         color="white"
         style={[styles.close_icon, styles.icon]}
       />
       <AntDesign
         name="delete"
-        size={30}
+        size={icons_size.medium}
         color="white"
         style={[styles.delete_icon, styles.icon]}
       />
