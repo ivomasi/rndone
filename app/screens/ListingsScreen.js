@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { FlatList } from "react-native";
+import { FlatList, TouchableOpacity } from "react-native";
 
 //comps
 import Screen from "../components/Screen";
 import Card from "../components/Card";
+import { isValidElement } from "react";
 
-const dummy = [
+export const dummy = [
   {
     id: 1,
     image: require("../assets/jacket.jpg"),
@@ -38,7 +39,7 @@ const dummy = [
   },
 ];
 
-const ListingsScreen = () => {
+const ListingsScreen = ({ navigation }) => {
   const [listings, setListings] = useState(dummy);
 
   useEffect(() => {
@@ -51,11 +52,20 @@ const ListingsScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           return (
-            <Card
-              title={item.title}
-              subTitle={item.subTitle}
-              image={item.image}
-            />
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("ListingDetails", {
+                  itemID: item.id,
+                  title: item.title,
+                })
+              }
+            >
+              <Card
+                title={item.title}
+                subTitle={item.subTitle}
+                image={item.image}
+              />
+            </TouchableOpacity>
           );
         }}
       />

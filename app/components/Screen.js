@@ -6,7 +6,9 @@ import styled from "styled-components/native";
 const Screen = ({ children, moreStyles }) => {
   return (
     <ScreenContainer
-      statusBarPadding={Platform.OS === "android" ? StatusBar.currentHeight : 0}
+      statusBarPadding={
+        Platform.OS === "android" ? StatusBar.currentHeight + 10 : 10
+      }
     >
       {children}
     </ScreenContainer>

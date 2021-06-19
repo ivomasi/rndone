@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 
 //styled
@@ -10,18 +10,34 @@ import ListItem from "../components/ListItem";
 //global styles
 import { colors } from "../global/globalStyles";
 
-const ListingDetails = () => {
+//dummy
+import { dummy } from "./ListingsScreen";
+
+const ListingDetails = ({ route }) => {
+  const [item, setItem] = useState({});
+
+  useEffect(() => {
+    const { itemID } = route.params;
+
+    const item = dummy.find((i) => i.id === itemID);
+
+    console.log(item);
+    setItem(item);
+  }, []);
+
   return (
     <View style={{ flex: 1 }}>
-      <ListingImage source={require("../assets/jacket.jpg")} />
+      <ListingImage source={item.image} />
       <Description bgColor={colors.white}>
-        <Title>sadf</Title>
-        <SubTitle color={colors.secondary}>asdfas</SubTitle>
+        <Title>{item.title}</Title>
+        <SubTitle color={colors.secondary}>${item.subTitle}</SubTitle>
       </Description>
       <ListItem
         image={require("../assets/mosh.jpg")}
-        title={"Mosh Apemadami"}
-        subTitle={"5 Listings"}
+        title={"Mosh someone"}
+        subTitle={"5 Listing"}
+        renderRightActions={null}
+        onPress={() => console.log("la")}
       />
     </View>
   );

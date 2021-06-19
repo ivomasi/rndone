@@ -1,19 +1,36 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 //screens
 import ListingDetails from "../screens/ListingDetails";
+import ListingsScreen from "../screens/ListingsScreen";
+
+//comps
+import Header from "../components/Header";
 
 const Stack = createStackNavigator();
 
 const ListingStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Listing" component={Listing} />
-        <Stack.Screen name="ListingDetails" component={ListingDetails} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName="ListingsScreen">
+      <Stack.Screen
+        options={({ navigation }) => {
+          return {
+            headerTitle: () => {
+              return <Header title="Explore" navigation={navigation} />;
+            },
+          };
+        }}
+        name="ListingsScreen"
+        component={ListingsScreen}
+      />
+      <Stack.Screen
+        options={({ route }) => ({ title: route.params.title })}
+        name="ListingDetails"
+        component={ListingDetails}
+      />
+    </Stack.Navigator>
   );
 };
+
+export default ListingStack;

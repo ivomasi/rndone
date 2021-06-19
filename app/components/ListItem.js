@@ -9,15 +9,18 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 
 //styles
 import { colors } from "../global/globalStyles";
+import { sub } from "react-native-reanimated";
 
 const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
-  const [strippedMessage, setStrippedMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (subTitle.length > 40) {
       const sliced = subTitle.slice(0, 41);
 
-      setStrippedMessage(sliced + " ...");
+      setMessage(sliced + " ...");
+    } else {
+      setMessage(subTitle);
     }
   }, []);
 
@@ -28,9 +31,7 @@ const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
           <ListItemImage source={image} />
           <View>
             <ListItemTitle>{title}</ListItemTitle>
-            <ListItemSubTitle color={colors.gray}>
-              {strippedMessage}
-            </ListItemSubTitle>
+            <ListItemSubTitle color={colors.gray}>{message}</ListItemSubTitle>
           </View>
         </ListItemContainer>
       </TouchableHighlight>

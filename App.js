@@ -1,6 +1,6 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+
+import styled from "styled-components/native";
 
 //screens
 import WelcomeScreen from "./app/screens/WelcomeScreen";
@@ -12,12 +12,12 @@ import Messages from "./app/screens/Messages";
 
 import Card from "./app/components/Card";
 
+//stacks
+import ListingStack from "./app/routing/ListingStack";
+import DrawerStack from "./app/routing/DrawerStack.js";
+
 export default function App() {
-  return <WelcomeScreen />;
+  return <DrawerStack />;
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "black",
-  },
-});
+const Container = styled.View``;
