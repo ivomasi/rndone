@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList } from "react-native";
+import { FlatList } from "react-native";
 
 //comps
 import ListItem from "../components/ListItem";
@@ -59,6 +59,8 @@ const Messages = () => {
 
   const handleArchive = () => {
     console.log("archive pressed");
+
+    //achrive message
   };
   return (
     <Screen>
@@ -85,6 +87,7 @@ const Messages = () => {
         refreshing={refreshing}
         onRefresh={() => {
           //fetch new data
+          setMessages(data);
         }}
       />
     </Screen>
@@ -92,5 +95,3 @@ const Messages = () => {
 };
 
 export default Messages;
-
-const styles = StyleSheet.create({});

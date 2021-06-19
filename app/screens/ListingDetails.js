@@ -1,5 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { View } from "react-native";
+
+//styled
+import styled from "styled-components/native";
 
 //comps
 import ListItem from "../components/ListItem";
@@ -9,12 +12,12 @@ import { colors } from "../global/globalStyles";
 
 const ListingDetails = () => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={require("../assets/jacket.jpg")} />
-      <View style={styles.description_details}>
-        <Text style={styles.title}>sadf</Text>
-        <Text style={styles.subTitle}>asdfas</Text>
-      </View>
+    <View style={{ flex: 1 }}>
+      <ListingImage source={require("../assets/jacket.jpg")} />
+      <Description bgColor={colors.white}>
+        <Title>sadf</Title>
+        <SubTitle color={colors.secondary}>asdfas</SubTitle>
+      </Description>
       <ListItem
         image={require("../assets/mosh.jpg")}
         title={"Mosh Apemadami"}
@@ -26,18 +29,22 @@ const ListingDetails = () => {
 
 export default ListingDetails;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  description_details: {
-    backgroundColor: colors.white,
-    padding: 20,
-  },
-  image: {
-    width: "100%",
-    height: 300,
-  },
-  title: { fontSize: 24, marginBottom: 10 },
-  subTitle: { fontWeight: "bold", color: colors.secondary, fontSize: 20 },
-});
+const ListingImage = styled.Image`
+  width: 100%;
+  height: 300px;
+`;
+
+const Title = styled.Text`
+  font-size: 24px;
+  margin-bottom: 10px;
+`;
+const SubTitle = styled.Text`
+  font-weight: bold;
+  color: ${(props) => props.color};
+  font-size: 20px;
+`;
+
+const Description = styled.View`
+  background-color: ${(props) => props.bgColor};
+  padding: 20px;
+`;

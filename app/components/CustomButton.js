@@ -1,32 +1,32 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import styled from "styled-components/native";
 
 //global styles
 import { colors, radius } from "../global/globalStyles";
 
 const CustomButton = ({ children, color = "primary" }) => {
   return (
-    <View style={[styles.button_container, { backgroundColor: colors[color] }]}>
-      <Text style={styles.button_text}>{children}</Text>
-    </View>
+    <Button bgColor={colors[color]} bRadius={radius.medium_radius}>
+      <BtnText color={colors.white}>{children}</BtnText>
+    </Button>
   );
 };
 
 export default CustomButton;
 
-const styles = StyleSheet.create({
-  button_container: {
-    width: "90%",
-    height: 50,
-    borderRadius: radius.medium_radius,
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 10,
-  },
-  button_text: {
-    fontWeight: "700",
-    fontSize: 18,
-    color: colors.white,
-  },
-});
+const Button = styled.View`
+  background-color: ${(props) => props.bgColor};
+  width: 90%;
+  height: 50px;
+  border-radius: ${(props) => props.bRadius}px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+`;
+
+const BtnText = styled.Text`
+  font-weight: 700;
+  font-size: 18px;
+  color: ${(props) => props.color};
+`;

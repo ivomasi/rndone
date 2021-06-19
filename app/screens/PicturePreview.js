@@ -1,15 +1,18 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 //styles
 import { colors, icons_size } from "../global/globalStyles";
+
+//styled
+import styled from "styled-components/native";
 
 //icons
 import { AntDesign } from "@expo/vector-icons";
 
 const PicturePreview = () => {
   return (
-    <View style={styles.container}>
+    <Container bgColor={colors.black}>
       <AntDesign
         name="close"
         size={icons_size.medium}
@@ -23,16 +26,25 @@ const PicturePreview = () => {
         style={[styles.delete_icon, styles.icon]}
       />
       <View style={[styles.delete_icon, styles.icon]}></View>
-      <Image
+      <PreviewPicture
         source={require("../assets/chair.jpg")}
-        style={styles.preview_picture}
         resizeMode="contain"
       />
-    </View>
+    </Container>
   );
 };
 
 export default PicturePreview;
+
+const Container = styled.View`
+  flex: 1;
+  background-color: ${(props) => props.bgColor};
+`;
+
+const PreviewPicture = styled.Image`
+  width: 100%;
+  height: 100%;
+`;
 
 const styles = StyleSheet.create({
   container: {
@@ -50,10 +62,5 @@ const styles = StyleSheet.create({
   icon: {
     position: "absolute",
     top: 40,
-  },
-
-  preview_picture: {
-    width: "100%",
-    height: "100%",
   },
 });

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableHighlight,
-} from "react-native";
+import { View, TouchableHighlight } from "react-native";
+
+//sytled
+import styled from "styled-components/native";
 
 //gesture
 import Swipeable from "react-native-gesture-handler/Swipeable";
@@ -27,13 +24,15 @@ const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
-        <View style={styles.list_item_container}>
-          <Image style={styles.list_item_image} source={image} />
+        <ListItemContainer>
+          <ListItemImage source={image} />
           <View>
-            <Text style={styles.list_item_title}>{title}</Text>
-            <Text style={styles.list_item_subtitle}>{strippedMessage}</Text>
+            <ListItemTitle>{title}</ListItemTitle>
+            <ListItemSubTitle color={colors.gray}>
+              {strippedMessage}
+            </ListItemSubTitle>
           </View>
-        </View>
+        </ListItemContainer>
       </TouchableHighlight>
     </Swipeable>
   );
@@ -41,22 +40,22 @@ const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
 
 export default ListItem;
 
-const styles = StyleSheet.create({
-  list_item_container: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    padding: 15,
-  },
-  list_item_image: {
-    width: 60,
-    height: 60,
-    borderRadius: 50,
-    marginRight: 10,
-  },
-  list_item_title: {
-    marginBottom: 5,
-  },
-  list_item_subtitle: {
-    color: "#969696",
-  },
-});
+const ListItemContainer = styled.View`
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 15px;
+`;
+
+const ListItemImage = styled.Image`
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  margin-right: 10px;
+`;
+
+const ListItemTitle = styled.Text`
+  margin-bottom: 5px;
+`;
+const ListItemSubTitle = styled.Text`
+  color: ${(props) => props.color};
+`;

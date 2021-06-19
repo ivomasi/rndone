@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 //comps
 import Screen from "../components/Screen";
@@ -7,86 +7,78 @@ import Screen from "../components/Screen";
 //icons
 import { MaterialIcons } from "@expo/vector-icons";
 
+//styled
+import styled from "styled-components/native";
+
 //global styles
 import { colors } from "../global/globalStyles";
 
 const MyAccountScreen = () => {
   return (
-    <Screen moreStyles={styles.container}>
-      <View style={styles.li}>
-        <Image
-          style={styles.profile_image}
-          source={require("../assets/mosh.jpg")}
-        />
+    <Screen>
+      <ListItem bgColor={colors.white}>
+        <ProfileImage source={require("../assets/mosh.jpg")} />
         <View>
           <Text>Mosh Mohamedan</Text>
-          <Text style={styles.email}>moshamohamedan@gmail.com</Text>
+          <Text style={{ color: colors.gray }}>moshamohamedan@gmail.com</Text>
         </View>
-      </View>
-      <View style={styles.separate}>
-        <View style={styles.li}>
+      </ListItem>
+      <View style={{ marginVertical: 15 }}>
+        <ListItem bgColor={colors.white}>
           <MaterialIcons
             name="format-list-bulleted"
             size={25}
             color="white"
             style={[styles.list_icon, styles.icons]}
           />
-          <Text style={styles.li_text}>My Listings</Text>
-        </View>
-        <View style={styles.li}>
+          <LiText>my listings</LiText>
+        </ListItem>
+        <ListItem bgColor={colors.white}>
           <MaterialIcons
             name="email"
             size={25}
             color="white"
             style={[styles.email_icon, styles.icons]}
           />
-          <Text style={styles.li_text}>My Messages</Text>
-        </View>
+          <LiText>my messages</LiText>
+        </ListItem>
       </View>
-      <View style={styles.li}>
+      <ListItem bgColor={colors.white}>
         <MaterialIcons
           name="logout"
           size={25}
           color="white"
           style={[styles.icons, styles.logout_icon]}
         />
-        <Text style={styles.li_text}>Logout</Text>
-      </View>
+        <LiText>logout</LiText>
+      </ListItem>
     </Screen>
   );
 };
 
+const ProfileImage = styled.Image`
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  margin-right: 10;
+`;
+
+const ListItem = styled.View`
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background-color: ${(props) => props.bgColor};
+`;
+
+const LiText = styled.Text`
+  font-size: 18px;
+  text-transform: capitalize;
+`;
+
 export default MyAccountScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#e3bfbf",
-  },
-
-  profile_image: {
-    width: 70,
-    height: 70,
-    borderRadius: 35,
-    marginRight: 10,
-  },
-
-  email: {
-    color: colors.gray,
-  },
-
-  separate: {
-    marginVertical: 15,
-  },
-
-  li: {
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
-    padding: 15,
-    backgroundColor: colors.white,
-  },
-
   icons: {
     borderRadius: 30,
     padding: 5,
@@ -106,9 +98,5 @@ const styles = StyleSheet.create({
 
   logout_icon: {
     backgroundColor: "#ffe66d",
-  },
-
-  li_text: {
-    fontSize: 18,
   },
 });

@@ -1,45 +1,42 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Text } from "react-native";
+import styled from "styled-components/native";
 
 //global styles
 import { radius, colors } from "../global/globalStyles";
 
 const Card = ({ title, subTitle, image }) => {
   return (
-    <View style={styles.card_container}>
-      <Image style={styles.card_image} source={image} />
-      <View style={styles.text_container}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subTitle}>${subTitle}</Text>
-      </View>
-    </View>
+    <CardContainer bgColor={colors.white} bRadius={radius.small_radius}>
+      <CardImage source={image} />
+      <InfoContainer>
+        <Text>{title}</Text>
+        <SubTitle textColor={colors.secondary}>${subTitle}</SubTitle>
+      </InfoContainer>
+    </CardContainer>
   );
 };
 
 export default Card;
 
-const styles = StyleSheet.create({
-  card_container: {
-    width: "90%",
-    borderRadius: radius.small_radius,
-    backgroundColor: colors.white,
-    overflow: "hidden",
-    alignSelf: "center",
-    marginBottom: 15,
-  },
+const CardContainer = styled.View`
+  width: 90%;
+  border-radius: ${(props) => props.bRadius};
+  background-color: ${(props) => props.bgColor};
+  overflow: hidden;
+  align-self: center;
+  margin-bottom: 15px;
+`;
 
-  card_image: {
-    width: "100%",
-    height: 200,
-  },
+const CardImage = styled.Image`
+  width: 100%;
+  height: 200px;
+`;
 
-  text_container: {
-    padding: 15,
-  },
-  subTitle: {
-    color: colors.secondary,
-    fontWeight: "bold",
+const InfoContainer = styled.View`
+  padding: 15px;
+`;
 
-    marginTop: 7,
-  },
-});
+const SubTitle = styled.Text`
+  color: ${(props) => props.textColor};
+`;

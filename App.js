@@ -13,7 +13,7 @@ import Messages from "./app/screens/Messages";
 import Card from "./app/components/Card";
 
 export default function App() {
-  return <ListingsScreen />;
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({

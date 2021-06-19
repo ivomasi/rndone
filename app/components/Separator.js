@@ -1,19 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+
+//styled
+import styled from "styled-components/native";
 
 //st
 import { colors } from "../global/globalStyles";
 
 const Separator = () => {
-  return <View style={styles.separator} />;
+  return <Separate bgColor={colors.light} />;
 };
 
 export default Separator;
 
-const styles = StyleSheet.create({
-  separator: {
-    width: "100%",
-    height: 1,
-    backgroundColor: colors.light,
-  },
-});
+const Separate = styled.View`
+  width: 100%;
+  height: 1px;
+  background-color: ${(props) => props.bgColor};
+`;
