@@ -6,8 +6,8 @@ import { colors, radius } from "../global/globalStyles";
 
 const CustomButton = ({ children, color = "primary" }) => {
   return (
-    <Button bgColor={colors[color]} bRadius={radius.medium_radius}>
-      <BtnText color={colors.white}>{children}</BtnText>
+    <Button bgColor={colors[color]}>
+      <BtnText>{children}</BtnText>
     </Button>
   );
 };
@@ -18,7 +18,7 @@ const Button = styled.View`
   background-color: ${(props) => props.bgColor};
   width: 90%;
   height: 50px;
-  border-radius: ${(props) => props.bRadius}px;
+  border-radius: ${radius.medium_radius}px;
   align-self: center;
   align-items: center;
   justify-content: center;
@@ -28,5 +28,5 @@ const Button = styled.View`
 const BtnText = styled.Text`
   font-weight: 700;
   font-size: 18px;
-  color: ${(props) => props.color};
+  color: ${colors.white};
 `;

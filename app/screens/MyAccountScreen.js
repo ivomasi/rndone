@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 //comps
 import Screen from "../components/Screen";
+/* import ListItem from "../components/ListItem"; */
 
 //icons
 import { MaterialIcons } from "@expo/vector-icons";
@@ -16,7 +17,7 @@ import { colors } from "../global/globalStyles";
 const MyAccountScreen = () => {
   return (
     <Screen>
-      <ListItem bgColor={colors.white}>
+      {/* <ListItem>
         <ProfileImage source={require("../assets/mosh.jpg")} />
         <View>
           <Text>Mosh Mohamedan</Text>
@@ -33,7 +34,7 @@ const MyAccountScreen = () => {
           />
           <LiText>my listings</LiText>
         </ListItem>
-        <ListItem bgColor={colors.white}>
+        <ListItem>
           <MaterialIcons
             name="email"
             size={25}
@@ -43,7 +44,7 @@ const MyAccountScreen = () => {
           <LiText>my messages</LiText>
         </ListItem>
       </View>
-      <ListItem bgColor={colors.white}>
+      <ListItem>
         <MaterialIcons
           name="logout"
           size={25}
@@ -51,7 +52,7 @@ const MyAccountScreen = () => {
           style={[styles.icons, styles.logout_icon]}
         />
         <LiText>logout</LiText>
-      </ListItem>
+      </ListItem> */}
     </Screen>
   );
 };
@@ -68,7 +69,7 @@ const ListItem = styled.View`
   align-items: center;
   width: 100%;
   padding: 15px;
-  background-color: ${(props) => props.bgColor};
+  background-color: ${colors.white};
 `;
 
 const LiText = styled.Text`

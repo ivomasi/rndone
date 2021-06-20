@@ -7,11 +7,11 @@ import { radius, colors } from "../global/globalStyles";
 
 const Card = ({ title, subTitle, image }) => {
   return (
-    <CardContainer bgColor={colors.white} bRadius={radius.small_radius}>
+    <CardContainer>
       <CardImage source={image} />
       <InfoContainer>
         <Text>{title}</Text>
-        <SubTitle textColor={colors.secondary}>${subTitle}</SubTitle>
+        <SubTitle>${subTitle}</SubTitle>
       </InfoContainer>
     </CardContainer>
   );
@@ -21,8 +21,8 @@ export default Card;
 
 const CardContainer = styled.View`
   width: 90%;
-  border-radius: ${(props) => props.bRadius};
-  background-color: ${(props) => props.bgColor};
+  border-radius: ${radius.small_radius};
+  background-color: ${colors.white};
   overflow: hidden;
   align-self: center;
   margin-bottom: 15px;
@@ -38,5 +38,5 @@ const InfoContainer = styled.View`
 `;
 
 const SubTitle = styled.Text`
-  color: ${(props) => props.textColor};
+  color: ${colors.secondary};
 `;

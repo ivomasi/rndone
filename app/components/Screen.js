@@ -7,23 +7,16 @@ import styled from "styled-components/native";
 import { colors } from "../global/globalStyles";
 
 const Screen = ({ children, bgColor }) => {
-  return (
-    <ScreenContainer
-      statusBarPadding={
-        Platform.OS === "android" ? StatusBar.currentHeight + 10 : 10
-      }
-      bgColor={bgColor}
-    >
-      {children}
-    </ScreenContainer>
-  );
+  return <ScreenContainer bgColor={bgColor}>{children}</ScreenContainer>;
 };
 
 export default Screen;
 
 const ScreenContainer = styled.SafeAreaView`
-  padding-top: ${(props) => props.statusBarPadding}px;
+  padding-top: ${Platform.OS === "android"
+    ? StatusBar.currentHeight + 10
+    : 10}px;
   flex: 1;
   background-color: ${(props) =>
-    props.bgColor ? props.bgColor : colors.white};
+    props.bgColor ? props.bgColor : colors.light};
 `;

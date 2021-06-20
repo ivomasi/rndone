@@ -9,7 +9,6 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 
 //styles
 import { colors } from "../global/globalStyles";
-import { sub } from "react-native-reanimated";
 
 const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
   const [message, setMessage] = useState("");
@@ -31,7 +30,7 @@ const ListItem = ({ image, title, subTitle, onPress, renderRightActions }) => {
           <ListItemImage source={image} />
           <View>
             <ListItemTitle>{title}</ListItemTitle>
-            <ListItemSubTitle color={colors.gray}>{message}</ListItemSubTitle>
+            <ListItemSubTitle>{message}</ListItemSubTitle>
           </View>
         </ListItemContainer>
       </TouchableHighlight>
@@ -58,5 +57,5 @@ const ListItemTitle = styled.Text`
   margin-bottom: 5px;
 `;
 const ListItemSubTitle = styled.Text`
-  color: ${(props) => props.color};
+  color: ${colors.gray};
 `;

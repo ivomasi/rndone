@@ -34,9 +34,9 @@ const ListingDetails = ({ route, navigation }) => {
       <TouchableWithoutFeedback onPress={openPicturePreview}>
         <ListingImage source={item.image} />
       </TouchableWithoutFeedback>
-      <Description bgColor={colors.white}>
+      <Description>
         <Title>{item.title}</Title>
-        <SubTitle color={colors.secondary}>${item.subTitle}</SubTitle>
+        <SubTitle>${item.subTitle}</SubTitle>
       </Description>
       <ListItem
         image={require("../assets/mosh.jpg")}
@@ -62,11 +62,11 @@ const Title = styled.Text`
 `;
 const SubTitle = styled.Text`
   font-weight: bold;
-  color: ${(props) => props.color};
+  color: ${colors.secondary};
   font-size: 20px;
 `;
 
 const Description = styled.View`
-  background-color: ${(props) => props.bgColor};
+  background-color: ${colors.white};
   padding: 20px;
 `;
