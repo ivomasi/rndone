@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { TouchableWithoutFeedback, View } from "react-native";
 
 //styled
 import styled from "styled-components/native";
@@ -13,7 +13,7 @@ import { colors } from "../global/globalStyles";
 //dummy
 import { dummy } from "./ListingsScreen";
 
-const ListingDetails = ({ route }) => {
+const ListingDetails = ({ route, navigation }) => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
@@ -25,9 +25,15 @@ const ListingDetails = ({ route }) => {
     setItem(item);
   }, []);
 
+  const openPicturePreview = () => {
+    navigation.navigate("PicturePreview", { image: item.image });
+  };
+
   return (
     <View style={{ flex: 1 }}>
-      <ListingImage source={item.image} />
+      <TouchableWithoutFeedback onPress={openPicturePreview}>
+        <ListingImage source={item.image} />
+      </TouchableWithoutFeedback>
       <Description bgColor={colors.white}>
         <Title>{item.title}</Title>
         <SubTitle color={colors.secondary}>${item.subTitle}</SubTitle>

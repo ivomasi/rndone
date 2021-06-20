@@ -4,7 +4,6 @@ import { FlatList, TouchableOpacity } from "react-native";
 //comps
 import Screen from "../components/Screen";
 import Card from "../components/Card";
-import { isValidElement } from "react";
 
 export const dummy = [
   {

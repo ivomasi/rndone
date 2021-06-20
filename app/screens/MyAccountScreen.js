@@ -60,7 +60,7 @@ const ProfileImage = styled.Image`
   width: 70px;
   height: 70px;
   border-radius: 35px;
-  margin-right: 10;
+  margin-right: 10px;
 `;
 
 const ListItem = styled.View`
