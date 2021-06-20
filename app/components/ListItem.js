@@ -21,8 +21,8 @@ const ListItem = ({
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    if (subTitle && subTitle.length > 40) {
-      const sliced = subTitle.slice(0, 41);
+    if (subTitle && subTitle.length > 35) {
+      const sliced = subTitle.slice(0, 36);
 
       setMessage(sliced + " ...");
     } else {
@@ -57,8 +57,8 @@ const ListItemContainer = styled.View`
 `;
 
 const ListItemImage = styled.Image`
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50px;
   margin-right: 10px;
 `;

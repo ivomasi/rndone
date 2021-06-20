@@ -11,16 +11,41 @@ import ListingDetails from "./app/screens/ListingDetails";
 import Messages from "./app/screens/Messages";
 //comps
 import Card from "./app/components/Card";
+import Screen from "./app/components/Screen";
 import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
 
 //stacks
 import ListingStack from "./app/routing/ListingStack";
 import DrawerStack from "./app/routing/DrawerStack.js";
 
-export default function App() {
-  return <MyAccountScreen />;
-}
+import Icon from "./app//components/Icon";
 
-const Container = styled.View`
-  padding: 100px 0;
-`;
+//dummy
+const categories = [
+  {
+    id: 1,
+    category: "Games",
+  },
+  {
+    id: 2,
+    category: "Electronics",
+  },
+  {
+    id: 3,
+    category: "Outdoors",
+  },
+  {
+    id: 4,
+    category: "Clothing",
+  },
+];
+
+export default function App() {
+  return (
+    <Screen>
+      <AppPicker icon="keyboard-arrow-down" items={categories} />
+      <AppTextInput icon="email" />
+    </Screen>
+  );
+}

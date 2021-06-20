@@ -25,4 +25,6 @@ const ActionContainer = styled.View`
   align-items: center;
   justify-content: space-around;
   border-left-width: 1px;
+  border-left-color: ${colors.light};
+  background-color: ${colors.white};
 `;
