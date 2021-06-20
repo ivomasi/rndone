@@ -1,5 +1,4 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 
 //styled
 import styled from "styled-components";
@@ -10,8 +9,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 const Icon = ({
   name,
   size = 24,
-  iconColor = "#000",
-  backgroundColor = "#fff",
+  iconColor = "#fff",
+  backgroundColor = "#000",
 }) => {
   return (
     <IconContainer size={size} radius={size / 2} bgColor={backgroundColor}>
@@ -30,5 +29,3 @@ const IconContainer = styled.View`
   align-items: center;
   justify-content: center;
 `;
-
-const styles = StyleSheet.create({});
