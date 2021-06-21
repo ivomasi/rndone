@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styled from "styled-components";
 
@@ -8,23 +8,22 @@ import { colors } from "../global/globalStyles";
 //comps
 import Icon from "./Icon";
 
-const AppTextInput = ({ icon }) => {
-  const [input, setInput] = useState("");
-
+const AppTextInput = ({ icon, ...otherProps }) => {
   return (
     <TextInputContainer>
       {icon && <Icon name={icon} />}
-      <TextInput onChangeText={(value) => setInput(value)} />
+      <TextInput onChangeText={(value) => setInput(value)} {...otherProps} />
     </TextInputContainer>
   );
 };
 
 const TextInputContainer = styled.View`
-  background-color: ${colors.medium_gray};
+  background-color: ${colors.light};
   border-radius: 50px;
   padding: 15px;
   flex-direction: row;
   align-items: center;
+  width: 100%;
 `;
 
 const TextInput = styled.TextInput`

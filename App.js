@@ -9,6 +9,8 @@ import MyAccountScreen from "./app/screens/MyAccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import ListingDetails from "./app/screens/ListingDetails";
 import Messages from "./app/screens/Messages";
+import LoginScreen from "./app/screens/LoginScreen";
+
 //comps
 import Card from "./app/components/Card";
 import Screen from "./app/components/Screen";
@@ -42,10 +44,5 @@ const categories = [
 ];
 
 export default function App() {
-  return (
-    <Screen>
-      <AppPicker icon="keyboard-arrow-down" items={categories} />
-      <AppTextInput icon="email" />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
