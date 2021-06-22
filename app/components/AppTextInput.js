@@ -12,7 +12,11 @@ const AppTextInput = ({ icon, ...otherProps }) => {
   return (
     <TextInputContainer>
       {icon && <Icon name={icon} />}
-      <TextInput onChangeText={(value) => setInput(value)} {...otherProps} />
+      <TextInput
+        onChangeText={(value) => setInput(value)}
+        {...otherProps}
+        placeholderTextColor={colors.medium_gray}
+      />
     </TextInputContainer>
   );
 };
@@ -23,7 +27,7 @@ const TextInputContainer = styled.View`
   padding: 15px;
   flex-direction: row;
   align-items: center;
-  width: 100%;
+  margin: 10px 0;
 `;
 
 const TextInput = styled.TextInput`

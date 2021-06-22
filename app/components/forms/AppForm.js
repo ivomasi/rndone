@@ -17,7 +17,6 @@ const AppForm = ({ initialValues, onSubmit, validationSchema, children }) => {
 };
 
 const FormContainer = styled.View`
-  min-height: 250px;
   justify-content: space-around;
 `;
 

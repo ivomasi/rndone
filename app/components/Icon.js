@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 
 //icon
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Icon = ({
   name,
@@ -14,7 +14,7 @@ const Icon = ({
 }) => {
   return (
     <IconContainer size={size} radius={size / 2} bgColor={backgroundColor}>
-      <MaterialIcons name={name} size={size / 2} color={iconColor} />
+      <MaterialCommunityIcons name={name} size={size / 2} color={iconColor} />
     </IconContainer>
   );
 };

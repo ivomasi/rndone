@@ -32,7 +32,7 @@ const data = [
     id: 4,
     title: "Egor",
     description:
-      "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+      "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.\n\nCurabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. askdjf saksdaj kasjflkadlk fjasllfnas nfjsandj nlfndasnfjlnasl ndfjnasnfndsan nsadlnf ldsnalkndflsaknlkn aslkndflknasl knlfkdsalkn lknklsadnflnskjakj ndfsakjn djnfjknsadkjfnjkas ndjfnasjôdnjfnsadkjn fjnjsadnjk fnasdkjlnfkjsakjdn fjfndsajnf kjasnkjnf djsnjknf a snfn dsajnjf sakjnkjdfnnj jkanjfdjka njnaknjfa kjnlkjan kjnjnasjnak",
     image: require("../assets/mosh.jpg"),
   },
   {

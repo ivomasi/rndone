@@ -10,6 +10,8 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import ListingDetails from "./app/screens/ListingDetails";
 import Messages from "./app/screens/Messages";
 import LoginScreen from "./app/screens/LoginScreen";
+import RegisterScreen from "./app/screens/RegisterScreen";
+import ListingEdit from "./app/screens/ListingEdit";
 
 //comps
 import Card from "./app/components/Card";
@@ -23,26 +25,6 @@ import DrawerStack from "./app/routing/DrawerStack.js";
 
 import Icon from "./app//components/Icon";
 
-//dummy
-const categories = [
-  {
-    id: 1,
-    category: "Games",
-  },
-  {
-    id: 2,
-    category: "Electronics",
-  },
-  {
-    id: 3,
-    category: "Outdoors",
-  },
-  {
-    id: 4,
-    category: "Clothing",
-  },
-];
-
 export default function App() {
-  return <LoginScreen />;
+  return <ListingEdit />;
 }

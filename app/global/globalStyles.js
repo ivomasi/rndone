@@ -5,7 +5,7 @@ export const colors = {
   white: "#fcfcfc",
   light: "#f8f4f4",
   orange: "#ff6666",
-  medium_gray: "#e2e2e2",
+  medium_gray: "#b6b6b6",
   gray: "#999",
   dark: "#0c0c0c",
 };

@@ -8,26 +8,30 @@ import { colors } from "../global/globalStyles";
 
 //comps
 import Icon from "./Icon";
+import PickerItem from "./PickerItem";
 
-const AppPicker = ({ icon, items }) => {
+const AppPicker = ({
+  icon,
+  items,
+  onSelectItem,
+  PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
+  selectedItem,
+  placeholder,
+}) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [label, setLabel] = useState("categories");
-
-  const handleSelect = (e, item) => {
-    console.log(e);
-    setLabel(item.category);
-    setModalOpen(false);
-  };
 
   return (
     <>
-      <PickerContainer>
-        {icon && <Icon name="apps" />}
-        <Label>{label}</Label>
-        <TouchableOpacity onPress={() => setModalOpen((prev) => !prev)}>
-          <Icon name={icon} />
-        </TouchableOpacity>
-      </PickerContainer>
+      <TouchableOpacity onPress={() => setModalOpen((prev) => !prev)}>
+        <PickerContainer>
+          {icon && <Icon name={icon} />}
+          <Label selectedItem={selectedItem}>
+            {selectedItem ? selectedItem : placeholder}
+          </Label>
+          <Icon name="chevron-down" />
+        </PickerContainer>
+      </TouchableOpacity>
       <Modal animationType="slide" visible={modalOpen}>
         <Button
           title="close"
@@ -37,11 +41,16 @@ const AppPicker = ({ icon, items }) => {
         <FlatList
           data={items}
           keyExtractor={(item) => item.id.toString()}
+          numColumns={numberOfColumns}
           renderItem={({ item }) => {
             return (
-              <PickerItem onPress={() => handleSelect(item)}>
-                <Text>{item.category}</Text>
-              </PickerItem>
+              <PickerItemComponent
+                onPress={() => {
+                  onSelectItem(item);
+                  setModalOpen(false);
+                }}
+                item={item}
+              />
             );
           }}
         />
@@ -50,20 +59,17 @@ const AppPicker = ({ icon, items }) => {
   );
 };
 
-const PickerItem = styled.TouchableOpacity`
-  padding: 20px;
-`;
-
 const PickerContainer = styled.View`
-  background-color: ${colors.medium_gray};
+  background-color: ${colors.light};
   border-radius: 50px;
   padding: 15px;
   flex-direction: row;
   align-items: center;
+  margin: 10px 0;
 `;
 
 const Label = styled.Text`
-  color: ${colors.dark};
+  color: ${(props) => (props.selectedItem ? colors.dark : colors.medium_gray)};
 
   flex: 1;
   font-size: 18px;

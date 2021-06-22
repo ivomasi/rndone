@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { TouchableHighlight } from "react-native";
 
 //sytled
@@ -10,6 +10,9 @@ import Swipeable from "react-native-gesture-handler/Swipeable";
 //styles
 import { colors } from "../global/globalStyles";
 
+//icon
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 const ListItem = ({
   image,
   IconComponent,
@@ -18,18 +21,6 @@ const ListItem = ({
   onPress,
   renderRightActions,
 }) => {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (subTitle && subTitle.length > 35) {
-      const sliced = subTitle.slice(0, 36);
-
-      setMessage(sliced + " ...");
-    } else {
-      setMessage(subTitle);
-    }
-  }, []);
-
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
@@ -39,8 +30,13 @@ const ListItem = ({
 
           <ListItemText>
             {title && <ListItemTitle>{title}</ListItemTitle>}
-            {subTitle && <ListItemSubTitle>{message}</ListItemSubTitle>}
+            {subTitle && (
+              <ListItemSubTitle numberOfLines={3}>{subTitle}</ListItemSubTitle>
+            )}
           </ListItemText>
+          {renderRightActions && (
+            <Arrow name="chevron-left" size={24} color="black" />
+          )}
         </ListItemContainer>
       </TouchableHighlight>
     </Swipeable>
@@ -54,6 +50,7 @@ const ListItemContainer = styled.View`
   align-items: center;
   padding: 15px;
   background-color: ${colors.white};
+  position: relative;
 `;
 
 const ListItemImage = styled.Image`
@@ -65,6 +62,7 @@ const ListItemImage = styled.Image`
 
 const ListItemText = styled.View`
   margin-left: 20px;
+  width: 70%;
 `;
 
 const ListItemTitle = styled.Text`
@@ -76,3 +74,5 @@ const ListItemTitle = styled.Text`
 const ListItemSubTitle = styled.Text`
   color: ${colors.gray};
 `;
+
+const Arrow = styled(MaterialCommunityIcons)``;

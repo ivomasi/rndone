@@ -12,7 +12,7 @@ import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 //validate inputs
 const validationSchema = yup.object().shape({
   email: yup.string().required().email().label("Email"),
-  password: yup.string().required().min(6).max(10).label("Password"),
+  password: yup.string().required().min(6).max(15).label("Password"),
 });
 
 const LoginScreen = () => {
