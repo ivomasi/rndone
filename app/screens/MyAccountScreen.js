@@ -11,7 +11,7 @@ import { colors } from "../global/globalStyles";
 
 const MyAccountScreen = () => {
   return (
-    <Screen>
+    <Screen bgColor={colors.light}>
       <ListItem
         title="Mosh mohamedan"
         subTitle="moshmohamedan@gmail.com"

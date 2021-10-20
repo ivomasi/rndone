@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 
 //styled
 import styled from "styled-components/native";
@@ -14,10 +13,10 @@ const WelcomeScreen = () => {
         <Logo source={require("../assets/logo-red.png")} />
         <Tagline>Sell What You Don´t Need</Tagline>
       </LogoContainer>
-      <View style={{ width: "100%" }}>
-        <CustomButton>Log In</CustomButton>
-        <CustomButton color="secondary">Register</CustomButton>
-      </View>
+      <ButtonContainer>
+        <CustomButton text="Log In"></CustomButton>
+        <CustomButton text="Register" color="secondary"></CustomButton>
+      </ButtonContainer>
     </Container>
   );
 };
@@ -25,6 +24,7 @@ const WelcomeScreen = () => {
 const Container = styled.ImageBackground`
   flex: 1;
   align-items: center;
+  padding: 15px;
   justify-content: space-between;
 `;
 
@@ -42,6 +42,10 @@ const Logo = styled.Image`
 const Tagline = styled.Text`
   font-size: 22px;
   font-weight: bold;
+`;
+
+const ButtonContainer = styled.View`
+  width: 100%;
 `;
 
 export default WelcomeScreen;

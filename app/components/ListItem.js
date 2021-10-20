@@ -29,9 +29,9 @@ const ListItem = ({
           {image && <ListItemImage source={image} />}
 
           <ListItemText>
-            {title && <ListItemTitle>{title}</ListItemTitle>}
+            {title && <ListItemTitle numberOfLines={1}>{title}</ListItemTitle>}
             {subTitle && (
-              <ListItemSubTitle numberOfLines={3}>{subTitle}</ListItemSubTitle>
+              <ListItemSubTitle numberOfLines={2}>{subTitle}</ListItemSubTitle>
             )}
           </ListItemText>
           {renderRightActions && (

@@ -20,7 +20,7 @@ const Card = ({ title, subTitle, image }) => {
 export default Card;
 
 const CardContainer = styled.View`
-  width: 90%;
+  width: 100%;
   border-radius: ${radius.small_radius};
   background-color: ${colors.white};
   overflow: hidden;

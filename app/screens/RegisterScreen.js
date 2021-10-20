@@ -1,10 +1,13 @@
 import React from "react";
 
+import * as yup from "yup";
+
 //comps
 import Screen from "../components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 
-import * as yup from "yup";
+//globa
+import { colors } from "../global/globalStyles";
 
 //register validation
 const validationSchema = yup.object().shape({
@@ -30,14 +33,12 @@ const RegisterScreen = () => {
             registerEmail: registerEmail.trim(),
             registerPassword,
           };
-
-          console.log(trimmed);
         }}
         validationSchema={validationSchema}
       >
         <AppFormField
           name="registerName"
-          icon="person"
+          icon="account"
           autoCorrect={false}
           autoCapitalize="none"
           placeholder="John Cena"

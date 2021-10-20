@@ -73,7 +73,7 @@ const Messages = () => {
               title={item.title}
               subTitle={item.description}
               image={item.image}
-              onPress={() => console.log("from messages")}
+              onPress={() => console.log("message tapped")}
               renderRightActions={() => (
                 <Actions
                   handleDelete={() => handleDelete(item)}

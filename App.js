@@ -20,7 +20,6 @@ import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 
 //stacks
-import ListingStack from "./app/routing/ListingStack";
 import DrawerStack from "./app/routing/DrawerStack.js";
 
 import Icon from "./app//components/Icon";
